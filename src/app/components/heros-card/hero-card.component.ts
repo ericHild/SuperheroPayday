@@ -5,7 +5,7 @@ import { HeroButtonDirective } from "../../directives/button/button.directive";
 import { RouterLink } from "@angular/router";
 import { HeroSalaryPaymentNotificationService } from "../../core/paymentNotification/send/send-payment.service";
 import { delay, mergeMap, of, Subscription, switchMap } from "rxjs";
-import { PaymentNotification } from "../../core/paymentNotification/send/send.model";
+import { PaymentNotif } from "../../core/paymentNotification/send/payment.model";
 
 @Component({
     selector: 'cmp-hero-card',
@@ -18,16 +18,13 @@ export class HeroCardComponent implements OnInit, OnDestroy {
 
     @Input() listOfHeros!: SuperHero[];
     
-    @Output() heroChange: EventEmitter<SuperHero> = new EventEmitter();
+    @Output() heroReportChange: EventEmitter<SuperHero> = new EventEmitter();
 
     private paymentNotification = inject(HeroSalaryPaymentNotificationService);
-    paymentMessage$: any;
-
-    notificationMsg!:PaymentNotification;
-
-    batManNotification!:PaymentNotification;
-    superManNotification!:PaymentNotification;
-    spiderManNotification!:PaymentNotification;
+    
+    batManSalaryNotification!:PaymentNotif;
+    superManSalaryNotification!:PaymentNotif;
+    spiderManSalaryNotification!:PaymentNotif;
 
     subscription!: Subscription;
 
@@ -36,24 +33,24 @@ export class HeroCardComponent implements OnInit, OnDestroy {
         .pipe(mergeMap( (message) => of(message).pipe( delay(3000))
         ))
         .subscribe( (message) => {
-            this.messagDistribution(message);
+            this.messageDistribution(message);
         });
     }
 
-    setHero(hero: SuperHero) {
-        this.heroChange.emit(hero);
+    sendReport(hero: SuperHero) {
+        this.heroReportChange.emit(hero);
     }
 
     // A extraire pour optimisation
-    messagDistribution(message: PaymentNotification) {
+    messageDistribution(message: PaymentNotif) {
         if(message.heroID === 15) {
-            this.batManNotification = message;
+            this.batManSalaryNotification = message;
         }
         if(message.heroID === 10) {
-            this.spiderManNotification = message;
+            this.spiderManSalaryNotification = message;
         }
         if(message.heroID === 8) {
-            this.superManNotification = message;
+            this.superManSalaryNotification = message;
         } 
     }
 

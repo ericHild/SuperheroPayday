@@ -25,3 +25,4 @@ RH application to pay super heros
 
 # Sources
  https://gist.github.com/muditlambda/47f059433584f03dc5ccbff930b69752#file-jest-config-js-L89
+ https://rxjs.dev/deprecations/subscribe-arguments

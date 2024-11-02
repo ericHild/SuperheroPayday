@@ -1,21 +1,21 @@
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
-import { PaymentNotification } from "./send.model";
+import { PaymentNotif } from "./payment.model";
 
 @Injectable({
     providedIn: 'root'
 })
 export class HeroSalaryPaymentNotificationService {
 
-    private notifSubject = new Subject<PaymentNotification>();
+    private notifSubject = new Subject<PaymentNotif>();
     
     sendPayment(heroID:number, message:string, salary: number) {
-        const notificationPayment:PaymentNotification = { heroID, message, salary};
+        const notificationPayment:PaymentNotif = { heroID, message, salary};
 
         this.notifSubject.next(notificationPayment);
     }
 
-    getNotification(): Observable<PaymentNotification> {
+    getNotification(): Observable<PaymentNotif> {
         return this.notifSubject.asObservable();
     }
 }

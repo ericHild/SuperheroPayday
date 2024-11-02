@@ -4,7 +4,7 @@
 
     <div class="content">
         <cmp-hero-search (listOfHerosChange)="herosChange($event)"></cmp-hero-search>
-        <cmp-hero-card [listOfHeros]="herosFiltered" (heroChange)="getHero($event)"></cmp-hero-card>
+        <cmp-hero-card [listOfHeros]="herosFiltered" (heroReportChange)="getHero($event)"></cmp-hero-card>
         <cmp-hero-paie [heroObj]="hero"></cmp-hero-paie>
     </div>
 

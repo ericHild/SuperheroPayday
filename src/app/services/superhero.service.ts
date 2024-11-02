@@ -15,7 +15,6 @@ export class HeroService {
     getHeros():Observable<SuperHero[]> {        
         return this.http.get<SuperHero[]>(this.LOCAL_JSON_URL).pipe(
             catchError( (error: HttpErrorResponse) => {
-                console.error('Error loading local JSON DATA:', error.message);
                 return throwError( () => error);
             })
         );
@@ -25,7 +24,6 @@ export class HeroService {
         return this.http.get<SuperHero[]>(this.LOCAL_JSON_URL).pipe(
             map( (data) => data.find(hero => hero.id === id)),
             catchError( (error: HttpErrorResponse) => {
-                console.error('Error finding hero by ID :', error.message);
                 return throwError( () => error);
             })
         );

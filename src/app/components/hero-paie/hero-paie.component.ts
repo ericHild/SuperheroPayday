@@ -21,22 +21,23 @@ export class HeroPaieComponent extends HeroSalary implements OnInit  {
         this.heroSalary(this._hero);
     }
 
-    specimen_msg = 'Aucun héros sélectionné';
-    
+    specimen_msg = 'Aucun héros sélectionné';    
     salary = 0;
 
-    private paymentNotification = inject(HeroSalaryPaymentNotificationService);
+    // Service
+    private paymentNotifService = inject(HeroSalaryPaymentNotificationService);
 
     ngOnInit(): void {}
     
-    heroSalary(_hero: SuperHero) {
-        if(_hero !== undefined) {
-            this.salary = this.calculateSalary(_hero.hourlyRate, _hero.numberOfHoursWorked);
+    // Calculate Salary
+    heroSalary(hero: SuperHero) {
+        if(hero !== undefined) {
+            this.salary = this.calculateSalary(hero.hourlyRate, hero.numberOfHoursWorked);
         }
     }
 
     payTheHero(hero: SuperHero) {
-        this.paymentNotification.sendPayment(hero.id, 'Virement salare', this.salary);
+        this.paymentNotifService.sendPayment(hero.id, 'Virement salare', this.salary);
     }
 
     

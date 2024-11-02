@@ -7,18 +7,19 @@
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{hero?.superHero}}</h6>
 
                 <!-- Actions -->
-                <button class="hero-btn" (click)="setHero(hero)" heroButton [apparence]="'primary'">Héros rapport</button>
+                <button class="hero-btn" (click)="sendReport(hero)" heroButton [apparence]="'primary'">Héros rapport</button>
+                
                 <a [routerLink]="['/hero', hero.id]" class="card-link">Fiche héros</a>
                 
                 <!-- Notification du salaire : A extraire pour optimisation --> 
-                <div *ngIf="batManNotification?.heroID === hero?.id" class="alert alert-success mt-3" role="alert">
-                    {{ batManNotification?.message }} de {{ hero?.superHero }} d'une valeur de {{ batManNotification?.salary}}€
+                <div *ngIf="batManSalaryNotification?.heroID === hero?.id" class="alert alert-success mt-3" role="alert">
+                    {{ batManSalaryNotification?.message }} de {{ hero?.superHero }} d'une valeur de {{ batManSalaryNotification?.salary}}€
                 </div>
-                <div *ngIf="spiderManNotification?.heroID === hero?.id" class="alert alert-success mt-3" role="alert">
-                    {{ spiderManNotification?.message }} de {{ hero?.superHero }} d'une valeur de {{ spiderManNotification?.salary}}€
+                <div *ngIf="spiderManSalaryNotification?.heroID === hero?.id" class="alert alert-success mt-3" role="alert">
+                    {{ spiderManSalaryNotification?.message }} de {{ hero?.superHero }} d'une valeur de {{ spiderManSalaryNotification?.salary}}€
                 </div>
-                <div *ngIf="superManNotification?.heroID === hero?.id" class="alert alert-success mt-3" role="alert">
-                    {{ superManNotification?.message }} de {{ hero?.superHero }} d'une valeur de {{ superManNotification?.salary}}€
+                <div *ngIf="superManSalaryNotification?.heroID === hero?.id" class="alert alert-success mt-3" role="alert">
+                    {{ superManSalaryNotification?.message }} de {{ hero?.superHero }} d'une valeur de {{ superManSalaryNotification?.salary}}€
                 </div>
             </div>
         </div>
