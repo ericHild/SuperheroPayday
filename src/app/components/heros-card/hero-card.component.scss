@@ -1,0 +1,11 @@
+.herosList {
+    list-style: none;
+    margin: 2rem auto;
+    padding: 0;
+    width: max-content;
+
+    li {
+        display: inline-block;
+        margin-right: 1rem;
+    }
+}

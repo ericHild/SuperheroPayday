@@ -1,0 +1,32 @@
+[
+    {
+        "id": 15,
+        "firstName": "Bruce",
+        "lastName": "Wayne",
+        "superHero": "BatMan",
+        "hourlyRate": 50000,
+        "numberOfHoursWorked": 8,
+        "picture": "",
+        "detail": "Batman travaille également régulièrement avec Superman (du même univers de Comics) malgré plusieurs divergences d'opinions entre eux sur des techniques de lutte contre le crime. Batman a fait partie de plusieurs équipes : la Société de justice d'Amérique, la Ligue de justice d'Amérique et les Outsiders."
+    },        
+    {
+        "id": 10,
+        "firstName": "Peeter",
+        "lastName": "Parker",
+        "superHero": "SpiderMan",
+        "hourlyRate": 35000,
+        "numberOfHoursWorked": 4,
+        "picture": "",
+        "detail": "Spider-Man ou l'homme araignée, est né en 1962, créé par Stan Lee et Steve Ditko.Peter Parker, orphelin à l'âge de six ans, est élevé par son oncle et sa tante, Benjamin et May Parker. Peter est mordu par une araignée radioactive à la suite d'une expérience. Il va alors développer des super-pouvoirs, dont une force surhumaine."
+    },
+    {
+        "id": 8,
+        "firstName": "Clark",
+        "lastName": "Kent",
+        "superHero": "SuperMan",
+        "hourlyRate": 45000,
+        "numberOfHoursWorked": 6,
+        "picture": "",
+        "detail": "Superman est un super-héros de bande dessinée américaine appartenant au monde imaginaire de l'Univers DC. Ce personnage est considéré comme une icône culturelle américaine. Il est habituellement vêtu d'un beau slip rouge moulant et d'une tenue bleu dotée d'une cape et de son logo sur le torse."
+    }
+]

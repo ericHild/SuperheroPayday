@@ -1,0 +1,6 @@
+<form>
+    <div>
+        <label for="searcHeros" class="form-label" data-testid="search-label">Trouver un super héros</label>
+        <input type="text" class="form-control" id="searcHeros" data-testid="search-input" placeholder="Ex: batman" [(ngModel)]="searchValue" name="searcHeros" (input)="findHero()">
+    </div>
+</form>

@@ -1,0 +1,9 @@
+@use './variables' as *;
+
+body {
+    margin: 0;
+    padding: 0;
+    color: $primary;
+    background-color: $neutral;
+    font-family: "IBM Plex Sans", serif;    
+}

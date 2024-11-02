@@ -1,0 +1,19 @@
+<div class="col-lg-8 mx-auto p-4 py-md-5">
+    
+  <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+    <p href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none m-0 p-0">
+      <!-- Ajouter ici l'image du hero -->
+      <span class="fs-4">{{ hero?.firstName }} {{ hero?.lastName }}</span>
+    </p>
+  </header>
+
+  <main>
+    <h1 class="text-body-emphasis">{{ hero?.superHero }}</h1>
+    <p class="fs-5 col-md-8">{{ hero?.detail }}</p>
+
+    <div class="mb-5">
+      <button (click)="back()" class="btn btn-primary btn-lg px-4">Retour</button>
+    </div>
+  </main>
+
+</div>
