@@ -7,15 +7,15 @@ import { PaymentNotif } from "./payment.model";
 })
 export class HeroSalaryPaymentNotificationService {
 
-    private notifSubject = new Subject<PaymentNotif>();
+    private notifSubject$ = new Subject<PaymentNotif>();
     
     sendPayment(heroID:number, message:string, salary: number) {
         const notificationPayment:PaymentNotif = { heroID, message, salary};
 
-        this.notifSubject.next(notificationPayment);
+        this.notifSubject$.next(notificationPayment);
     }
 
     getNotification(): Observable<PaymentNotif> {
-        return this.notifSubject.asObservable();
+        return this.notifSubject$.asObservable();
     }
 }
