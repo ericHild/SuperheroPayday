@@ -1,11 +1,11 @@
 <main>
-    <h1 data-testid="headlineDashboard">Dashboard</h1>
+    <h1 data-testid="headlineDashboard">{{ title }}</h1>
     <hr />
 
     <div class="content">
-        <cmp-hero-search (listOfHerosChange)="herosChange($event)"></cmp-hero-search>
+        <cmp-hero-search [superHeros]="superHeros" (superHerosChange)="superHerosChange($event)"></cmp-hero-search> 
         <cmp-hero-card [listOfHeros]="herosFiltered" (heroReportChange)="getHero($event)"></cmp-hero-card>
-        <cmp-hero-paie [heroObj]="hero"></cmp-hero-paie>
+       <cmp-hero-paie [hero]="hero"></cmp-hero-paie>
     </div>
 
 </main>

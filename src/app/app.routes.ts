@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { herosResolver } from './resolvers/heros-resolver.service';
 
 export const routes: Routes = [
     { 
@@ -8,7 +9,9 @@ export const routes: Routes = [
         path: 'welcome', loadComponent: () => import('./pages/welcome/welcome.component').then(c => c.WelcomeComponent)
     },
     { 
-        path: 'rhDashboard', loadComponent: () => import('./pages/rh-dashbord/rh-dashboard.component').then(c => c.RHDashboardComponent)
+        path: 'dashboard',
+        loadComponent: () => import('./pages/rh-dashbord/rh-dashboard.component').then(c => c.RHDashboardComponent),
+        resolve: { heros: herosResolver }
     },
     {
         path: 'hero/:id', loadComponent: () => import('./pages/hero-detail/hero-detail.component').then(c => c.HeroDetailComponent)

@@ -16,7 +16,7 @@ export class HeroPaieComponent extends HeroSalary implements OnInit  {
 
     _hero!: SuperHero;
 
-    @Input() set heroObj(hero: SuperHero) {
+    @Input() set hero(hero: SuperHero) {
         this._hero = hero;
         this.heroSalary(this._hero);
     }

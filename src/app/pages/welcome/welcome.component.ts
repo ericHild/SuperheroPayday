@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -9,5 +9,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './welcome.component.scss'
 })
 export class WelcomeComponent {
+
   welcome_msg = 'Bienvenue sur votre application RH de gestion des supers héros';
+  
 }

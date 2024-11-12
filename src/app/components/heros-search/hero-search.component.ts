@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, EventEmitter, inject, Input, OnDestroy, OnInit, Output, output } from "@angular/core";
+import { AfterContentInit, AfterViewInit, Component, EventEmitter, inject, Input, OnDestroy, OnInit, Output, output } from "@angular/core";
 import { SuperHero } from "../../models/superHero.model";
 import { FormsModule } from "@angular/forms";
 import { HeroService } from "../../services/superhero.service";
@@ -11,43 +11,27 @@ import { Subscription } from "rxjs";
     standalone: true,
     imports: [FormsModule]
 })
-export class HeroSearchComponent implements OnInit, OnDestroy {
+export class HeroSearchComponent implements OnInit {
 
-    private heroService = inject(HeroService);
-
-    heros!: SuperHero[];
-    herosFiltered!:SuperHero[];
+    @Input() superHeros: SuperHero[] = [];
+    superHerosFiltered: SuperHero[] = [];
     
     searchValue = '';
 
-    @Output() listOfHerosChange: EventEmitter<SuperHero[]> = new EventEmitter();
-
-    subscription!: Subscription;
+    @Output() superHerosChange: EventEmitter<SuperHero[]> = new EventEmitter();
 
     constructor() {}
 
     ngOnInit(): void {
-        this.getHeros();
-    }
-
-    getHeros() {
-        this.subscription = this.heroService.getHeros().subscribe(res => {
-            this.heros = res;
-            this.herosFiltered = this.heros;
-            this.listOfHerosChange.emit(this.herosFiltered);
-        });
+        this.superHerosFiltered = this.superHeros;
     }
 
     findHero() {
-        this.herosFiltered = this.heros.filter(
+        this.superHerosFiltered = this.superHeros.filter(
             (value) => value.superHero.toLowerCase().startsWith(this.searchValue.toLowerCase())
         );
             
-        this.listOfHerosChange.emit(this.herosFiltered); 
-    }
-
-    ngOnDestroy(): void {
-        this.subscription.unsubscribe();
+        this.superHerosChange.emit(this.superHerosFiltered); 
     }
 
 }

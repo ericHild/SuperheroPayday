@@ -11,7 +11,6 @@ export class HeroSalaryPaymentNotificationService {
     
     sendPayment(heroID:number, message:string, salary: number) {
         const notificationPayment:PaymentNotif = { heroID, message, salary};
-
         this.notifSubject$.next(notificationPayment);
     }
 

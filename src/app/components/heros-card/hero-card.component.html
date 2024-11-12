@@ -11,16 +11,8 @@
                 
                 <a [routerLink]="['/hero', hero.id]" class="card-link">Fiche héros</a>
                 
-                <!-- Notification du salaire : A extraire pour optimisation --> 
-                <div *ngIf="batManSalaryNotification?.heroID === hero?.id" class="alert alert-success mt-3" role="alert">
-                    {{ batManSalaryNotification?.message }} de {{ hero?.superHero }} d'une valeur de {{ batManSalaryNotification?.salary}}€
-                </div>
-                <div *ngIf="spiderManSalaryNotification?.heroID === hero?.id" class="alert alert-success mt-3" role="alert">
-                    {{ spiderManSalaryNotification?.message }} de {{ hero?.superHero }} d'une valeur de {{ spiderManSalaryNotification?.salary}}€
-                </div>
-                <div *ngIf="superManSalaryNotification?.heroID === hero?.id" class="alert alert-success mt-3" role="alert">
-                    {{ superManSalaryNotification?.message }} de {{ hero?.superHero }} d'une valeur de {{ superManSalaryNotification?.salary}}€
-                </div>
+                <!-- Notification du salaire -->
+                <cmp-salary-notification [hero]="hero"></cmp-salary-notification>
             </div>
         </div>
     </li>

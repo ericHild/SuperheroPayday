@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HeroService } from "./superhero.service";
 import { SuperHero } from "../models/superHero.model";
@@ -65,7 +65,20 @@ describe('SearchService', () => {
             req.flush(mockHeroes);
         });
 
-        test('GET API Error : should return a error message', (done) => {});
+        test('GET API Error : should return a error message', fakeAsync(() => {
+            heroService.getHeros().subscribe({ 
+                next: () => { },
+                error: (error) => {
+                    expect(error.status).toEqual(500);
+                    expect(error.statusText).toBe('Erreur serveur') ;
+                }
+            });
+            
+            const req = httpMock.expectOne('./assets/data/superheros.json');
+            expect(req.request.method).toBe('GET');
+            req.flush('Erreur', { status: 500, statusText: 'Erreur serveur' });
+            tick();
+        }));
 
     });
 
