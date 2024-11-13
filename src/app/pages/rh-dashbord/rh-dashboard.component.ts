@@ -1,18 +1,20 @@
 import { AfterViewChecked, AfterViewInit, Component, inject, OnInit } from "@angular/core";
-import { SuperHero } from "../../models/superHero.model";
+import { SuperHero } from "../../shared/models/superHero.model";
 import { CommonModule } from "@angular/common";
 import { HeroSearchComponent } from "../../components/heros-search/hero-search.component";
 import { HeroCardComponent } from "../../components/heros-card/hero-card.component";
 import { HeroPaieComponent } from "../../components/hero-paie/hero-paie.component";
-import { HeroService } from "../../services/superhero.service";
+import { HeroService } from "../../core/services/api/superhero.service";
 import { ActivatedRoute } from "@angular/router";
+import { PaymentNotificationContextService } from "../../core/services/paymentNotification/paymentNotificationContextService";
 
 @Component({
     selector: 'rh-dashboard',
     templateUrl: './rh-dashboard.component.html',
     styleUrl: 'rh-dashboard.component.scss',    
     imports: [CommonModule, HeroSearchComponent, HeroCardComponent, HeroPaieComponent],
-    standalone: true
+    standalone: true,
+    providers: [PaymentNotificationContextService]
 })
 export class RHDashboardComponent implements OnInit {
 

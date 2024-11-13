@@ -1,6 +1,6 @@
 import { Component, inject, Input, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { SuperHero } from "../../models/superHero.model";
+import { SuperHero } from "../../shared/models/superHero.model";
 import { RouterLink } from "@angular/router";
 import { Location } from '@angular/common';
 

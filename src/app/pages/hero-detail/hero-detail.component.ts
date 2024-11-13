@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from "@angular/core";
-import { HeroService } from "../../services/superhero.service";
+import { HeroService } from "../../core/services/api/superhero.service";
 import { ActivatedRoute } from "@angular/router";
-import { SuperHero } from "../../models/superHero.model";
+import { SuperHero } from "../../shared/models/superHero.model";
 import { HeroProfilComponent } from "../../components/hero-profil/hero-profil.component";
 
 @Component({

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { herosResolver } from './resolvers/heros-resolver.service';
+import { herosResolver } from './shared/resolvers/heros-resolver.service';
 
 export const routes: Routes = [
     { 

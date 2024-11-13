@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { catchError, map, Observable, throwError } from "rxjs";
-import { SuperHero } from "../models/superHero.model";
+import { SuperHero } from "../../../shared/models/superHero.model";
 
 @Injectable({
     providedIn: 'root'

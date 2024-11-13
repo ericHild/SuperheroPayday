@@ -1,7 +1,7 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HeroService } from "./superhero.service";
-import { SuperHero } from "../models/superHero.model";
+import { SuperHero } from "../../../shared/models/superHero.model";
 
 describe('SearchService', () => {
 

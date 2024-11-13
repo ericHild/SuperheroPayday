@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, OnDestroy, OnInit, Output } from "@angular/core";
-import { SuperHero } from "../../models/superHero.model";
+import { SuperHero } from "../../shared/models/superHero.model";
 import { CommonModule } from "@angular/common";
 import { HeroButtonDirective } from "../../directives/button/button.directive";
 import { RouterLink } from "@angular/router";

@@ -1,9 +1,10 @@
 import { Component, inject, Input, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { SuperHero } from "../../models/superHero.model";
+import { SuperHero } from "../../shared/models/superHero.model";
 import { HeroButtonDirective } from "../../directives/button/button.directive";
-import HeroSalary from "../../core/salaryManagement/salary";
-import { HeroSalaryPaymentNotificationService } from "../../core/paymentNotification/send/send-payment.service";
+import HeroSalary from "../../core/services/salaryManagement/salary";
+import { PaymentNotificationContextService } from "../../core/services/paymentNotification/paymentNotificationContextService";
+import { AlertNotificationStrategy } from "../../core/services/paymentNotification/alertNotificationStrategy";
 
 @Component({
     selector: 'cmp-hero-paie',
@@ -25,20 +26,23 @@ export class HeroPaieComponent extends HeroSalary implements OnInit  {
     salary = 0;
 
     // Service
-    private paymentNotifService = inject(HeroSalaryPaymentNotificationService);
+    private paymentNotifContextService = inject(PaymentNotificationContextService);
 
     ngOnInit(): void {}
     
     // Calculate Salary
-    heroSalary(hero: SuperHero) {
+    heroSalary(hero: SuperHero): void {
         if(hero !== undefined) {
             this.salary = this.calculateSalary(hero.hourlyRate, hero.numberOfHoursWorked);
         }
     }
 
-    payTheHero(hero: SuperHero) {
-        this.paymentNotifService.sendPayment(hero.id, 'Virement salare', this.salary);
+    alertNotificationPayment(hero: SuperHero): void {
+        this.paymentNotifContextService.setStrategy(new AlertNotificationStrategy(this.paymentNotifContextService));
+        this.paymentNotifContextService.executePayment(hero.id, 'Virement salare', this.salary);
     }
+
+    sendSMSNotificationPayment(hero: SuperHero): void {}
 
     
 }

@@ -1,7 +1,7 @@
 import { AfterContentInit, AfterViewInit, Component, EventEmitter, inject, Input, OnDestroy, OnInit, Output, output } from "@angular/core";
-import { SuperHero } from "../../models/superHero.model";
+import { SuperHero } from "../../shared/models/superHero.model";
 import { FormsModule } from "@angular/forms";
-import { HeroService } from "../../services/superhero.service";
+import { HeroService } from "../../core/services/api/superhero.service";
 import { Subscription } from "rxjs";
 
 @Component({

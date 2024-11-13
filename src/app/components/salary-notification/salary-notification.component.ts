@@ -1,9 +1,9 @@
 import { Component, inject, Input, OnInit } from "@angular/core";
-import { PaymentNotif } from "../../core/paymentNotification/send/payment.model";
-import { SuperHero } from "../../models/superHero.model";
-import { HeroSalaryPaymentNotificationService } from "../../core/paymentNotification/send/send-payment.service";
+import { PaymentNotif } from "../../shared/models/payment.model";
+import { SuperHero } from "../../shared/models/superHero.model";
 import { delay, mergeMap, of } from "rxjs";
 import { CommonModule } from "@angular/common";
+import { PaymentNotificationContextService } from "../../core/services/paymentNotification/paymentNotificationContextService";
 
 @Component({
     selector: 'cmp-salary-notification',
@@ -13,16 +13,15 @@ import { CommonModule } from "@angular/common";
     imports: [CommonModule]
 })
 export class SalaryNotificationComponent implements OnInit {
-
     
     @Input() hero!: SuperHero;   
 
-    paymentNotificationService = inject(HeroSalaryPaymentNotificationService);
+    paymentNotificationContextService$ = inject(PaymentNotificationContextService);
 
     paymentNotification!:PaymentNotif;
     
     ngOnInit(): void {
-        this.paymentNotificationService.getNotification().pipe(
+        this.paymentNotificationContextService$.getNotifSubjectPayment().pipe(
             mergeMap( (message) => of(message).pipe( delay(3000)) )
         )
         .subscribe( (message) => {
